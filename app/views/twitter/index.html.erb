@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+    <title>Blog &ndash; Layout Examples &ndash; Pure</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <!--<![endif]-->
+    
+    
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/layouts/blog-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="css/layouts/blog.css">
+        <!--<![endif]-->
+</head>
+<body>
+
+
+
+
+
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+        <h1>FIND TWEETS</h1>
+           <form action="/tweets" method="get">
+           	<input type="text" class="nav" name="search" placeholder="Search.." class="pure-u-1"><br>
+           	<input type="submit"  value="submit" class="pure-button">
+
+           </form>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            <!-- A wrapper for all the blog posts -->
+            <div class="posts">
+                <h1 class="content-subhead">TWITS</h1>
+                <% @results.each do |result|%>
+                <!-- A single blog post -->
+                <section class="post">
+                    <header class="post-header">
+                        <img width="48" height="48" alt="Tilo Mitra&#x27;s avatar" class="post-avatar" src="<%= result[:user][:profile_image_url_https]%>">
+
+                        <h2 class="post-title"><%=result[:user][:screen_name]%></h2>
+
+                        
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            <%=result[:text]%>
+                        </p>
+                    </div>
+                </section>
+                <% end -%>
+            </div>
+
+            
+                
+
+            </div>
+
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal">
+                    <ul>
+                
+                        <li class="pure-menu-item"><a href="https://twitter.com/Nawdeep26/following" class="pure-menu-link">Twitter</a></li>
+                        <li class="pure-menu-item"><a href="https://www.facebook.com/" class="pure-menu-link">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
+

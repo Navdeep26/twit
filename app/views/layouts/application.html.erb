@@ -32,8 +32,9 @@
             $("#submit").click(function(){
 
                 var query = $("#search-box-1").val();
-                $.get("/tweets?search=" + query, function(data, status){
-                    $("#layout").html(data);
+                
+                $.get("/twit?q="+query, function(data, status){
+                    $("#print").html(data);
                 });
             });
         });

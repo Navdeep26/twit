@@ -1,60 +1,16 @@
 
          
 <div id="layout" class="pure-g">
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
-        <div class="header">
-        <h1>FIND TWEETS</h1>
-           <!-- <form action="/tweets" method="get"> -->
-               	<input type="text" class="nav" name="search" id="search-box-1" placeholder="Search.." remote :true class="pure-u-1"><br>
-               	<input type="submit"  value="submit" class="pure-button" id="submit">
-            
-          <!--  </form> -->
-        </div>
-    </div>
+    <%=render 'header'%>
 
     <div class="content pure-u-1 pure-u-md-3-4">
-        <div>
+        <div id ="print" >
             <!-- A wrapper for all the blog posts -->
-            <div class="posts">
-                <h1 class="content-subhead">TWITS</h1>
-                <% @results.each do |result|%>
-                <!-- A single blog post -->
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://twitter.com/<%= result.user.screen_name %>" target="new" > 
-                            <img width="48" height="48" alt="Tilo Mitra&#x27;s avatar" class="post-avatar" src="<%= result.user.profile_image_url_https %>"/> 
-                        </a>
-
-                        <h2 class="post-title ">
-                            <a href="https://twitter.com/<%= result.user.screen_name %>" target="new" class="aur"> 
-                                <%= result.user.screen_name %>    
-                            </a>
-                        </h2>
-                        
-                    </header>
-
-                    <div class="post-description">
-                        <p>
-                            <%= result.text %>
-                        </p>
-                    </div>
-                </section>
-                <% end %>
-            </div>
+            <%= render 'twit'%>
 
         </div>
 
-        <div class="footer">
-            <div class="pure-menu pure-menu-horizontal">
-                <ul>
-            
-                    <li class="pure-menu-item"><a href="https://twitter.com/Nawdeep26" class="pure-menu-link">Twitter</a></li>
-                    <li class="pure-menu-item"><a href="https://www.facebook.com/nawdeep.singh.9" class="pure-menu-link">Facebook</a></li>
-                    <li class="pure-menu-item"><a href="https://www.linkedin.com/in/navdeep-kumar-923a1a131/" class="pure-menu-link">Linkedin</a></li>
-                </ul>
-            </div>
-        </div>
+        <%= render 'footer'%>
     </div>
 </div>
 

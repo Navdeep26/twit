@@ -1,0 +1,27 @@
+<div class="posts">
+                <h1 class="content-subhead">TWITS</h1>
+                <% @results.each do |result|%>
+                <!-- A single blog post -->
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://twitter.com/<%= result.user.screen_name %>" target="new" > 
+                            <img width="48" height="48" alt="Tilo Mitra&#x27;s avatar" class="post-avatar" src="<%= result.user.profile_image_url_https %>"/> 
+                        </a>
+
+                        <h2 class="post-title ">
+                            <a href="https://twitter.com/<%= result.user.screen_name %>" target="new" class="aur"> 
+                                <%= result.user.screen_name %>    
+                            </a>
+                        </h2>
+                        
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            <%= result.text %>
+                        </p>
+                    </div>
+                </section>
+                <% end %>
+            </div>

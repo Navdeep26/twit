@@ -26,17 +26,4 @@
   <body>
     <%= yield %>
   </body>
-        <script>
-        $(document).ready(function(){
-
-            $("#submit").click(function(){
-
-                var query = $("#search-box-1").val();
-                
-                $.get("/twit?q="+query, function(data, status){
-                    $("#print").html(data);
-                });
-            });
-        });
-        </script>
 </html>

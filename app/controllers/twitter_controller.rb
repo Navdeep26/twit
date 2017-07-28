@@ -11,7 +11,7 @@ class TwitterController < ApplicationController
   end
 
   def common
-  	query = params[:q].present? ? params[:q] : "#amazon"
+  	query = params[:q].present? ? params[:q] : "amazon"
   	logger.info(query)
    	@results = CLIENT.search(query, :result_type => "recent").take(30)
   end

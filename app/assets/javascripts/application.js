@@ -13,3 +13,37 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+$(document).ready(function(){
+
+	$('#search-box-1').keypress(
+    	function(e) {
+    	if(e.which == 13){
+    		
+    		var query = $("#search-box-1").val();
+           
+                $.get("/twit?q="+query, function(data, status){
+                	
+                    $("#print").html(data);
+                });
+    	}
+        
+    });
+
+});
+
+
+$(document).ready(function(){
+
+	$('#submit').click(function(){
+
+		var query = $('#search-box-1').val();
+
+		 $.get("/twit?q="+query, function(data, status){
+                    $("#print").html(data);
+          });
+	});
+
+});

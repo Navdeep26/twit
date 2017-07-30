@@ -23,27 +23,27 @@ $(document).ready(function(){
     	if(e.which == 13){
     		
     		var query = $("#search-box-1").val();
-           
-                $.get("/twit?q="+query, function(data, status){
+           		
+           		var encodedUrl = encodeURIComponent(query);
+                $.get("/twit?q="+encodedUrl, function(data, status){
                 	
+
                     $("#print").html(data);
                 });
     	}
         
     });
 
-});
-
-
-$(document).ready(function(){
-
 	$('#submit').click(function(){
 
 		var query = $('#search-box-1').val();
-
-		 $.get("/twit?q="+query, function(data, status){
+		
+		var encodedUrl = encodeURIComponent(query);
+		 $.get("/twit?q="+encodedUrl, function(data, status){
                     $("#print").html(data);
           });
 	});
 
 });
+
+
